@@ -36,11 +36,9 @@ sl.sidebar.info("""
 """)
 
 def predict_next_word(input_text):
-    # Tokenize and pad the input text
     input_tokens = tokenizer.texts_to_sequences([input_text])[0]
     input_tokens = pad_sequences([input_tokens], maxlen=30)
     
-    # Predict the next word
     prediction = model.predict(input_tokens)
     predicted_word = tokenizer.index_word[np.argmax(prediction)]
     
