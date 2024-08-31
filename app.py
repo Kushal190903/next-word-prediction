@@ -4,10 +4,10 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import pickle
 import numpy as np
 
-# Load the model
+
 model = load_model(r"sherlock_model.h5")
 
-# Load the tokenizer
+
 with open(r"tokenizer.pkl", "rb") as file:
     tokenizer = pickle.load(file)
 
@@ -46,10 +46,10 @@ def predict_next_word(input_text):
     
     return predicted_word
 
-# Real-time text input
+
 input_text = sl.text_input(label="Start typing your sentence here...")
 
-# Check if the last character is a space
+
 if input_text :
     predicted_word = predict_next_word(input_text)  
     
@@ -61,7 +61,7 @@ if input_text :
 else:
     sl.markdown("**Predicted Next Word:** _(waiting for input)_")
 
-# Add footer
+# footer
 sl.markdown("""
     ---
     **Note:** This app is the demonstration of a word prediction model. The accuracy of predictions may vary based on the input text.
